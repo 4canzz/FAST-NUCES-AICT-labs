@@ -19,5 +19,4 @@ print next three characters according to the given pattern.
 Starting Char Output
 A        C F J
 B        D G K
-C        E H L
-*/
+C        E H L*/

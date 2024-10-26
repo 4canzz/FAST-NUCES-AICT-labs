@@ -21,5 +21,4 @@ x = x + y / 4;
 z = x % 3 + 4;
 w = 17 / 3 + 6.5;
 t = x / 4.0 + 15 % 4 - 3.5; 
-First solve it on paper. Then write a C++ code to verify your answer
-*/
+First solve it on paper. Then write a C++ code to verify your answer*/

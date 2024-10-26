@@ -24,5 +24,4 @@ coefficient of ), and ‘c’ (the constant term) and outputs the type of roots 
 
 Case 1: Single repeated roots
 Case 2: Two real roots
-Case 3: No real roots
-*/
+Case 3: No real roots*/

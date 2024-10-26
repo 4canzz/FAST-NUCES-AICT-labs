@@ -16,5 +16,4 @@ int main() {
 variable. Now write code such that following is displayed on screen:
 A B C
 [A]*2 [B]*2 [C]*2
-[A]+3 [B]+2 [C]+2
-*/
+[A]+3 [B]+2 [C]+2*/

@@ -38,4 +38,4 @@ int main(){
 }
 
 /*Write a program that prompts the user to enter the lengths of three sides of a triangle
-and then outputs a message indicating whether the triangle is a right triangle.*/
+and then outputs a message indicating whether the triangle is a right triangle. */

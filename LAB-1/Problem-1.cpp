@@ -13,5 +13,4 @@ int main() {
 following way. Use “\t” to give tab space between each field
 ********************************
 Name Roll Number Degree Semester
-******************************** 
-*/
+******************************** */

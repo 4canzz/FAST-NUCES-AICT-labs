@@ -50,5 +50,4 @@ Your calculator should be able to perform all the operations below:
 3. If ch= ‘*’ then calculate mul = a * b and display the multiplicationresult.
 4. If ch= ‘/’ then calculate div = a / b and display the divisionresult.
 5. If ch=’%’ then calculate mod = a % b and display the modulusresult.
-6. Otherwise display invalid operator
-*/
+6. Otherwise display invalid operator*/
