@@ -27,6 +27,7 @@ int main(){
         callsabove200 = calls - callsabove150;
         bill = 200 + (0.6*callsabove100) + (0.5*callsabove200) + (0.4*callsabove200);
         cout << "bill = Rs" << bill << endl;
+    }
     return 0;
 }
 /*Write a program to calculate the monthly telephone bills as per the following rule: 

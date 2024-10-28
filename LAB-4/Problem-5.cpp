@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int a, b, c;
@@ -9,7 +10,7 @@ int main(){
         cout << "the equation has 1 repeated real root" << endl;
     }
     else if((pow(b, 2)-4*a*c) > 0){
-        cout << "the equation has 1 distinct real roots" << endl;
+        cout << "the equation has 2 distinct real roots" << endl;
     }
      else{
         cout << "the equation has NO real roots" << endl;

@@ -25,14 +25,14 @@ int main(){
     else if (len3 > len1 && len3 > len2){
         hyp = len3;
         base = len2;
-        perp = len3;
+        perp = len1;
     }
 
     if(pow(hyp, 2) == pow(base, 2) + pow(perp, 2)){
         cout << "it is a right angle triangle" << endl;
     }
     else{
-        cout << "it is not a right angel triangle" << endl;
+        cout << "it is not a right angle triangle" << endl;
     }
     return 0;
 }

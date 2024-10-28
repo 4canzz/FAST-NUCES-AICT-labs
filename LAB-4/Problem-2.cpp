@@ -5,7 +5,7 @@ int year;
 int main(){
     cout << "enter year: ";
     cin >> year;
-    if(year % 4 == 0 && year % 100 != 0 && year % 400){
+    if((year % 4 == 0 && year % 100 != 0) || (year % 100 == 0 && year % 400 == 0)){
         cout << "it is a leap year" << endl;
     }
     else{
