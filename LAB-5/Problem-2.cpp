@@ -1,3 +1,50 @@
+#include <iostream>
+using namespace std;
+
+int num1, num2;
+char ch;
+
+int main() {
+cout << "enter two number" << endl;
+cin >> num1 >> num2;
+cout << "choose operator" << endl;
+cout << "+, -, *, /, %" << endl;
+cin >> ch;
+
+switch (ch) {
+case '+':
+cout << num1 + num2 << endl;
+break;
+case '-':
+cout << num1 - num2 << endl;
+break;
+case '*':
+cout << num1 * num2 << endl;
+break;
+case '/':
+switch (num2 != 0) {
+case true:
+cout << num1 / num2 << endl;
+break;
+default:
+cout << "division by zero not possible" << endl;
+}
+break;
+case '%':
+switch (num2 != 0) {
+case true:
+cout << num1 % num2 << endl;
+break;
+default:
+cout << "mod by zero not possible" << endl;
+}
+default:
+cout << "error, choose valid operator" << endl;
+}
+system ("pause");
+return 0;
+}
+
 /*Exercise - 2
 Write a C++ to perform arithmetic Operations using switch case.
 1. Read two numbers ‘a’ and ‘b’ and &#39;Read your choice of operator ch.
