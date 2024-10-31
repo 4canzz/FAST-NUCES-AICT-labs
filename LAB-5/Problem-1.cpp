@@ -5,7 +5,7 @@ int year;
 int main(){
     cout << "enter year: ";
     cin >> year;
-    switch((year % 4 == 0 && year % 100 != 0) || (year % 100 == 0 && year % 400 == 0)){
+    switch((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)){
         case true:
             cout << "it is a leap year" << endl;
             break;
