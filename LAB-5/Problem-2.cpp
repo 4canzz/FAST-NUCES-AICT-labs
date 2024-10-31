@@ -5,11 +5,11 @@ int num1, num2;
 char ch;
 
 int main() {
-        cout << "enter two number" << endl;
-        cin >> num1 >> num2;
-        cout << "choose operator" << endl;
-        cout << "+, -, *, /, %" << endl;
-        cin >> ch;
+    cout << "Enter two numbers:" << endl;
+    cin >> num1 >> num2;
+    cout << "Choose an operator:" << endl;
+    cout << "+, -, *, /, %" << endl;
+    cin >> ch;
 
     switch (ch) {
         case '+':
@@ -24,10 +24,10 @@ int main() {
         case '/':
             switch (num2 != 0) {
                 case true:
-                cout << num1 / num2 << endl;
-                break;
-            default:
-            cout << "division by zero not possible" << endl;    
+                    cout << num1 / num2 << endl;
+                    break;
+                default:
+                    cout << "Division by zero not possible" << endl;
             }
             break;
         case '%':
@@ -36,11 +36,14 @@ int main() {
                     cout << num1 % num2 << endl;
                     break;
                 default:
-                    cout << "mod by zero not possible" << endl;
+                    cout << "Modulo by zero not possible" << endl;
             }
+            break;
         default:
-            cout << "error, choose valid operator" << endl;
+            cout << "Error, choose a valid operator" << endl;
+            break;
     }
+
     return 0;
 }
 
