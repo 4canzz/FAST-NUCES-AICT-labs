@@ -19,6 +19,6 @@ int main() {
     }
     return 0;
 }
-/*Create a code that takes an integer input and checks if it’s a prime number using a while loop.
+/*Write a C++ code that verifies if a number is a perfect number.
 A perfect number is a positive integer that is equal to the sum of its proper divisors, excluding the number itself. 
 For example, 6 is a perfect number because  6=1+2+3.*/
