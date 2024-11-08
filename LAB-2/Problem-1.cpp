@@ -10,6 +10,7 @@ int main (){
     double w = 17 / 3 + 6.5;
     double t = x / 4.0 + 15 % 4 - 3.5;
     cout << "x is: " << x << endl << "y is: " << y << endl << "z is:" << z << endl << "y is:" << w << endl << "it is:" << t << endl; 
+    
     return 0;
 }
 

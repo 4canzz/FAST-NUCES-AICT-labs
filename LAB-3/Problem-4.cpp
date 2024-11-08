@@ -9,10 +9,12 @@ void main(){
     ofstream out;
     out.open("total_marks");
     int x, y, z;
+    
     while (!in.eof()){
         in >> x >> y >> z;
         out << x + y + z << endl;
     }
+
     in.close();
     out.close();
 }

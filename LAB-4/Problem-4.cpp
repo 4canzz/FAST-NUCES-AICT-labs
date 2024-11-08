@@ -12,6 +12,7 @@ int main(){
     cin >> b;
     cout << "Enter operator: +, -, *, /, %" << endl;
     cin >> ch;
+
     if(ch == '+'){
         cout << "a+b = " << a+b <<endl;
     }
@@ -37,6 +38,7 @@ int main(){
     else{
         cout << "Error! invalid operator!" << endl;
     }
+    
     return 0;
 }
 

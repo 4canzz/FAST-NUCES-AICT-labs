@@ -6,10 +6,12 @@ int main(){
     char ch, ch1, ch2, ch3;
     cout << "enter value of character: " << endl;
     cin >> ch;
+    
     ch1 = ch + 2;
     ch2 = ch + 5;
     ch3 = ch + 9;
     cout << endl << ch1 << "\t" << ch2 << "\t" << ch3 << endl;
+
     return 0;
 }   
 

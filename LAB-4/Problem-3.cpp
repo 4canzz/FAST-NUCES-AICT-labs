@@ -5,6 +5,7 @@ int marks;
 int main(){
     cout << "enter marks: " << endl;
     cin >> marks;
+    
     if(marks <= 100 && marks){
         cout << "Grade A" << endl;
     }
@@ -23,6 +24,7 @@ int main(){
     else{
         cout << "invalid input" << endl;
     }
+
     return 0;
 }
 

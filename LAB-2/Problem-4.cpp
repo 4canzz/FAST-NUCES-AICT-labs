@@ -7,9 +7,11 @@ int main(){
     float F;
     cout << "enter value of temprature in celsius" << endl;
     cin >> celsius;
+
     F = (celsius * 9/5)+32;
     cout << "the value in Farenheit is: " << F << endl;
 
+    return 0;
 }
 
 

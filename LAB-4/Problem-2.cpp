@@ -5,12 +5,14 @@ int year;
 int main(){
     cout << "enter year: ";
     cin >> year;
+    
     if((year % 4 == 0 && year % 100 != 0) || (year % 100 == 0 && year % 400 == 0)){
         cout << "it is a leap year" << endl;
     }
     else{
         cout << "it is not a leap year" << endl;
     }
+
     return 0;
 }
 /*Any year is input by the user. Write a program to determine whether the year is a leap year or

@@ -50,8 +50,7 @@ int main()
 
     return 0;
 }
-n 0;
-}
+
 /*Exercise - 3
 Write a program in C++ using SWITCH CASE operator to find the grade of a student.
 The details are as follow

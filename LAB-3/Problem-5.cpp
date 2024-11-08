@@ -9,15 +9,19 @@ void main(){
     ofstream out;
     out.open("Factorials.txt");
     int x, temp;
+
     while (!in.eof()){
         in >> x;
         temp = x;
+
         while (temp != 1) {
             temp--;
             x *= temp;
         }
+
     out << x << endl;
     }
+    
     in.close();
     out.close();
 }

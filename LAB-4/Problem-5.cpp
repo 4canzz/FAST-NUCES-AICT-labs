@@ -6,6 +6,7 @@ int a, b, c;
 int main(){
     cout << "input the value of a (the coefficient of ), b (the coefficient of ), and c (the constant term) and outputs the type of roots of the equation." << endl;
     cin >> a >> b >> c;
+
     if((pow(b, 2)-4*a*c) == 0){
         cout << "the equation has 1 repeated real root" << endl;
     }
@@ -15,6 +16,7 @@ int main(){
      else{
         cout << "the equation has NO real roots" << endl;
     }
+    
     return 0;
 }
 

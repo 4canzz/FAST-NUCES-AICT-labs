@@ -34,6 +34,7 @@ int main(){
     else{
         cout << "it is not a right angle triangle" << endl;
     }
+    
     return 0;
 }
 
