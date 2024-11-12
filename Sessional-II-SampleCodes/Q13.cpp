@@ -16,7 +16,11 @@ int main (){
     }
 
     for (int i = start; i <= end; i++){
-        int x = static_cast<int>(sqrt(i));
+        /* Calculate the square root of `i` (result is a double), cast it to an integer using `static_cast`
+         to remove the  decimal portion (truncating instead of rounding), and store the result in `x`*/
+    int x = static_cast<int>(sqrt(i));
+
+        int x = static_cast<int>(sqrt(i)); 
         if (pow(x,2) == i){
             cout << i << ", ";
         }
