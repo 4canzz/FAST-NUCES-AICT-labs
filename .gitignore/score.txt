@@ -1,0 +1,2 @@
+Name	Difficulty	Score
+meow	medium	50
