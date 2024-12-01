@@ -2,18 +2,18 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
-#include <stdlib.h>
 #include <ctime>
 #include <string>
 using namespace std;
 
 // Function protypes
 void IntInputValidation(int& x, int upval, int lowval);		// Validates integer input within specified bounds
-string hint();											    // Generates a hint based on the secret number
-void giveFeedbackandHint(int diff, bool& UsedHint);			// Provides feedback on the player's guess and optionally offers a hint
-void dynamicdiff(int maxrange, int attempts);				// Implements the main guessing game logic based on difficulty
-void game(int a);											// Handles game setup and looping logic
+string hint();							// Generates a hint based on the secret number
+void giveFeedbackandHint(int diff, bool& UsedHint);		// Provides feedback on the player's guess and optionally offers a hint
+void dynamicdiff(int maxrange, int attempts);			// Implements the main guessing game logic based on difficulty
+void game(int a);						// Handles game setup and looping logic
 
+//Declaration of global variables
 int secret, attempts, score = 0, diff, guess, maxrange;
 char ch;
 string hintstring, name, diffname;
@@ -93,6 +93,7 @@ void giveFeedbackandHint(int diff, bool& UsedHint) {
 	else {
 		cout << "Way off." << endl;
 	}
+
 	if (diff > 0) {
 		cout << "Would you like a hint? (y/n)" << endl;
 		cin >> ch;
@@ -105,6 +106,7 @@ void giveFeedbackandHint(int diff, bool& UsedHint) {
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
+
 		if (ch == 'y') {
 			cout << hint() << endl;
 			cout << "Hint used! 5 points and 1 attempt deducted." << endl;
@@ -148,10 +150,8 @@ void dynamicdiff(int maxrange, int attempts) {
 			attempts--;
 			}
 		}
-
 		attempts--;
-
-		}
+	}
 	score += attempts * 10;
 	cout << "Game Over! The Secret Number was: " << secret << ". Your final score is: " << score << " (including hint penalties)." << endl;
 }
@@ -177,6 +177,7 @@ void game(int a) {
 		out << "Player: " << name << endl;
 		out << "Difficulty: " << diffname << endl;
 		out << "Final Score: " << score << endl;
+
 		if (attempts > 0){
 			out << "Result: Win" << endl;
 		}
@@ -201,6 +202,13 @@ void game(int a) {
 		if (cont == 'n') {
 			break;
 		}
+
+		cout << "Choose difficulty: ";
+		IntInputValidation(diff, 3, 1);
+	}
+	out.close();
+}
+
 
 		cout << "Choose difficulty: ";
 		IntInputValidation(diff, 3, 1);
