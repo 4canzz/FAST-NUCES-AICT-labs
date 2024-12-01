@@ -17,9 +17,7 @@ int main() {
 }
 
 double calculateRetail(double wholesaleprice, double markuppercentage) {
-	double retailprice = 0, percentage;
-	percentage = markuppercentage * 0.01;
-	retailprice = wholesaleprice + (wholesaleprice * percentage);
+	double retailprice = wholesaleprice + (wholesaleprice * (markuppercentage * 0.01));
 	return retailprice;
 }
 

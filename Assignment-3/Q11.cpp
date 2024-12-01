@@ -1,3 +1,6 @@
+/*Question No. 11 Marks: 10
+Write a recursive function to solve the Tower of Hanoi problem for n disks, displaying the steps to move all
+disks from source to destination using an auxiliary rod.*/
 #include <iostream>
 using namespace std;
 

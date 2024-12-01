@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-double radius(double areaofbase, double height);
+double radius(double areaofbase));
 double circumference(double areaofbase, double height);
 double surfacearea(double areaofbase, double height);
 double volume(double areaofbase, double height);
@@ -13,24 +13,24 @@ int main() {
 	cout << "enter area of base and height of cylinder : " << endl;
 	cin >> areaofbase >> height;
 
-	cout << "radius = " << radius(areaofbase, height) << endl;
+	cout << "radius = " << radius(areaofbase) << endl;
 	cout << "circumference = " << circumference(areaofbase, height) << endl;
 	cout << "surface area = " << surfacearea(areaofbase, height) << endl;
 	cout << "volume = " << volume(areaofbase, height) << endl;
 	return 0;
 }
 
-double radius(double areaofbase, double height) {
+double radius(double areaofbase) {
 	double radius = sqrt(areaofbase / pi);
 	return radius;
 }
 
 double circumference(double areaofbase, double height) {
-	double circumference = 2.0 * pi * radius(areaofbase, height);
+	double circumference = 2.0 * pi * radius(areaofbase);
 	return circumference;
 }
 double surfacearea(double areaofbase, double height) {
-	double surfacearea = (2.0 * pi * pow(radius(areaofbase, height), 2.0)) + (2.0 * pi * radius(areaofbase, height) * height);
+	double surfacearea = (2.0 * pi * pow(radius(areaofbase), 2.0)) + (2.0 * pi * radius(areaofbase) * height);
 	return surfacearea;
 }
 double volume(double areaofbase, double height) {

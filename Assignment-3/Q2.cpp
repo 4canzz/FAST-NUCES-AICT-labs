@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-bool inputvalidation( int bin);
+bool inputvalidation(int bin);
 int bintodec(int bin);
 
 int main(){
