@@ -2,7 +2,7 @@
 Player: 4canzz
 Difficulty: medium
 Final Score: 50
-Result: Lose
+Result: Win
 ---------------------------------
 Player: 2
 Difficulty: medium
