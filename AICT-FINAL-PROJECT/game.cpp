@@ -208,9 +208,3 @@ void game(int a) {
 	}
 	out.close();
 }
-
-
-		cout << "Choose difficulty: ";
-		IntInputValidation(diff, 3, 1);
-	}
-}
