@@ -8,10 +8,10 @@ using namespace std;
 
 // Function protypes
 void IntInputValidation(int& x, int upval, int lowval);		// Validates integer input within specified bounds
-string hint();							// Generates a hint based on the secret number
-void giveFeedbackandHint(int diff, bool& UsedHint);		// Provides feedback on the player's guess and optionally offers a hint
-void dynamicdiff(int maxrange, int attempts);			// Implements the main guessing game logic based on difficulty
-void game(int a);						// Handles game setup and looping logic
+string hint();											    // Generates a hint based on the secret number
+void giveFeedbackandHint(int diff, bool& UsedHint);			// Provides feedback on the player's guess and optionally offers a hint
+void dynamicdiff(int maxrange, int attempts);				// Implements the main guessing game logic based on difficulty
+void game(int a);											// Handles game setup and looping logic
 
 //Declaration of global variables
 int secret, attempts, score = 0, diff, guess, maxrange;
@@ -129,7 +129,12 @@ void dynamicdiff(int maxrange, int attempts) {
 		IntInputValidation(guess, maxrange, 1);
 
 		diff = abs(secret - guess);
-
+		if (diff == 0) {
+			score += attempts * 10;
+			cout << "Correct! You’ve guessed the number." << endl;
+			cout << "Your final score is: " << score << " (including hint penalties)." << endl;
+			return;
+		}
 		if (diff != 0) {
 			if (secret > guess) {
 				cout << "Try a higher number!" << endl;
@@ -142,7 +147,6 @@ void dynamicdiff(int maxrange, int attempts) {
 		if (attempts == 1) {
 			cout << "Hints are not available on the last attempt!" << endl;
 		}
-
 		else {
 			giveFeedbackandHint(diff, UsedHint);
 			if (UsedHint) {
@@ -178,10 +182,10 @@ void game(int a) {
 		out << "Difficulty: " << diffname << endl;
 		out << "Final Score: " << score << endl;
 
-		if (attempts > 0){
+		if (score > 0){
 			out << "Result: Win" << endl;
 		}
-		else{
+		else {
 			out << "Result: Lose" << endl;
 		}
 		out << "---------------------------------" << endl;
