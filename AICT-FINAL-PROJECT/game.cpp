@@ -1,6 +1,7 @@
 //Copyright (c) 2024 24L6116, 24L6065
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 #include <cmath>
 #include <ctime>
 #include <string>
