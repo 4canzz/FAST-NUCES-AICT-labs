@@ -1,8 +1,8 @@
 //Copyright (c) 2024 24L6116, 24L6065
 #include <iostream>
 #include <fstream>
-#include <stdlib.h>
 #include <cmath>
+#include <stdlib.h>
 #include <ctime>
 #include <string>
 using namespace std;
@@ -10,34 +10,32 @@ using namespace std;
 // Function protypes
 void IntInputValidation(int& x, int upval, int lowval);		// Validates integer input within specified bounds
 string hint();											    // Generates a hint based on the secret number
-void giveFeedbackandHint(int diff, bool& UsedHint);			// Provides feedback on the player's guess and optionally offers a hint
+void giveFeedbackandHint(int difference, bool& UsedHint);	// Provides feedback on the player's guess and optionally offers a hint
 void dynamicdiff(int maxrange, int attempts);				// Implements the main guessing game logic based on difficulty
-void game(int a);											// Handles game setup and looping logic
+void game(int difficulty);									// Handles game setup and looping logic
 
-//Declaration of global variables
-int secret, attempts, score = 0, diff, guess, maxrange;
-char ch;
-string hintstring, name, diffname;
+int secret, attempts, score = 0, difference, difficulty, guess, maxrange;
+string name, diffname;
 
 int main() {
 	srand(time(0));
 	cout << "________________________________________________________________________________________________________________________" << endl;
-	cout << "|\t\t\t\t\tWelcome to the Number Guessing Game!					       |" << endl;
+	cout << "|\t\t\t\t\tWelcome to the Number Guessing Game!						|" << endl;
 	cout << "|----------------------------------------------------------------------------------------------------------------------|" << endl;
 	cout << "|Difficulties:                                                                                                         |" << endl;
 	cout << "|Easy (1): Range 1-50, 12 attempts                                                                                     |" << endl;
 	cout << "|Medium (2): Range 1-100, 10 attempts                                                                                  |" << endl;
 	cout << "|Hard (3): Range 1-200, 8 attempts                                                                                     |" << endl;
-	cout << "|You can take a hint anytime by entering 'y' after your attempt, however Each hint request deducts 5 points from the   |" << endl;
-	cout << "|total score, along with an additional attempt.                                                                        |" << endl;
+	cout << "|You can take a hint anytime by entering 'y' after your attempt, however Each hint request deducts 5 points from the	|" << endl;
+	cout << "|total score, along with an additional attempt.										|" << endl;
 	cout << "_______________________________________________________________________________________________________________________" << endl;
 	cout << "Enter your name for scorekeeping: ";
 	getline(cin, name);
 	cout << "welcome, " << name << ", choose a difficulty : ";
 
-	IntInputValidation(diff, 3, 1);
+	IntInputValidation(difficulty, 3, 1);
 
-	game(diff);
+	game(difficulty);
 
 	return 0;
 }
@@ -51,6 +49,7 @@ void IntInputValidation(int& x, int upval, int lowval) {
 }
 
 string hint() {
+	string hintstring;
 	int randhint = rand() % 2;
 	switch (randhint) {
 	case 0:
@@ -74,28 +73,27 @@ string hint() {
 	default:
 		return "";
 	}
-
 }
 
-void giveFeedbackandHint(int diff, bool& UsedHint) {
-	if (diff == 0) {
+void giveFeedbackandHint(int difference, bool& UsedHint) {
+	if (difference == 0) {
 		cout << "Correct! You’ve guessed the number." << endl;
 		return;
 	}
-	else if (diff < 10) {
+	else if (difference < 10) {
 		cout << "Almost there!" << endl;
 	}
-	else if (diff >= 10 && diff < 20) {
+	else if (difference >= 10 && difference < 20) {
 		cout << "You're getting close!" << endl;
 	}
-	else if (diff >= 20 && diff < 40) {
+	else if (difference >= 20 && difference < 40) {
 		cout << "Still quite far." << endl;
 	}
 	else {
 		cout << "Way off." << endl;
 	}
-
-	if (diff > 0) {
+	if (difference > 0) {
+		char ch;
 		cout << "Would you like a hint? (y/n)" << endl;
 		cin >> ch;
 		cin.clear();
@@ -107,7 +105,6 @@ void giveFeedbackandHint(int diff, bool& UsedHint) {
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
-
 		if (ch == 'y') {
 			cout << hint() << endl;
 			cout << "Hint used! 5 points and 1 attempt deducted." << endl;
@@ -129,52 +126,56 @@ void dynamicdiff(int maxrange, int attempts) {
 
 		IntInputValidation(guess, maxrange, 1);
 
-		diff = abs(secret - guess);
-		if (diff == 0) {
-			score += attempts * 10;
-			cout << "Correct! You’ve guessed the number." << endl;
-			cout << "Your final score is: " << score << " (including hint penalties)." << endl;
-			return;
-		}
-		if (diff != 0) {
+		difference = abs(secret - guess);
+
+		if (difference != 0) {
 			if (secret > guess) {
 				cout << "Try a higher number!" << endl;
 			}
-			else {
+			else if (secret < guess){
 				cout << "Guess lower!" << endl;
 			}
 		}
 
-		if (attempts == 1) {
-			cout << "Hints are not available on the last attempt!" << endl;
+		if (difference == 0) {
+			score += attempts * 10;
+			cout << "Correct! You’ve guessed the number." << endl;
+			cout << "your score is :" << score << endl;
+			return;
+		}
+
+		if (attempts > 1) {
+			giveFeedbackandHint(difference, UsedHint);
+			if (UsedHint) {
+				score -= 5;
+				attempts--;
+			}
 		}
 		else {
-			giveFeedbackandHint(diff, UsedHint);
-			if (UsedHint) {
-			score -= 5;
-			attempts--;
-			}
+			cout << "Hints are not available on the last attempt!" << endl;
 		}
 		attempts--;
 	}
-	score += attempts * 10;
-	cout << "Game Over! The Secret Number was: " << secret << ". Your final score is: " << score << " (including hint penalties)." << endl;
+
+	if (attempts == 0) {
+		cout << "Bad Luck! You lost! The Secret Number was: " << secret << " your score is: " << score << endl;
+	}
 }
 
-void game(int a) {
+void game(int difficulty) {
 	ofstream out;
 	out.open("score.txt", ios::app);
 
 	while (true) {
-		if (a == 1) {
+		if (difficulty == 1) {
 			diffname = "easy";
 			dynamicdiff(50, 12);
 		}
-		else if (a == 2) {
+		else if (difficulty == 2) {
 			diffname = "medium";
 			dynamicdiff(100, 10);
 		}
-		else if (a == 3) {
+		else if (difficulty == 3) {
 			diffname = "hard";
 			dynamicdiff(200, 8);
 		}
@@ -182,13 +183,6 @@ void game(int a) {
 		out << "Player: " << name << endl;
 		out << "Difficulty: " << diffname << endl;
 		out << "Final Score: " << score << endl;
-
-		if (score > 0){
-			out << "Result: Win" << endl;
-		}
-		else {
-			out << "Result: Lose" << endl;
-		}
 		out << "---------------------------------" << endl;
 
 		char cont;
@@ -209,7 +203,7 @@ void game(int a) {
 		}
 
 		cout << "Choose difficulty: ";
-		IntInputValidation(diff, 3, 1);
+		IntInputValidation(difficulty, 3, 1);
 	}
 	out.close();
 }
