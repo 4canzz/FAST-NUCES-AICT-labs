@@ -183,8 +183,13 @@ void game(int difficulty) {
 		out << "Player: " << name << endl;
 		out << "Difficulty: " << diffname << endl;
 		out << "Final Score: " << score << endl;
+		if (score > 0){
+				out << "Result: Win" << endl;
+		}
+			else {
+				out << "Result: Lose" << endl;
+		}
 		out << "---------------------------------" << endl;
-
 		char cont;
 		cout << "do you want to continue? (y/n)" << endl;
 		cin >> cont;
