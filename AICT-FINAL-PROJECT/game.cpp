@@ -7,13 +7,15 @@
 #include <string>
 using namespace std;
 
-// Function protypes
+//Function Prototypes
+void clearInputbuffer();									// Clears the input buffer, function made to code less redundant
 void IntInputValidation(int& x, int upval, int lowval);		// Validates integer input within specified bounds
 string hint();											    // Generates a hint based on the secret number
 void giveFeedbackandHint(int difference, bool& UsedHint);	// Provides feedback on the player's guess and optionally offers a hint
 void dynamicdiff(int maxrange, int attempts);				// Implements the main guessing game logic based on difficulty
 void game(int difficulty);									// Handles game setup and looping logic
 
+//Global Variables
 int secret, attempts, score = 0, difference, difficulty, guess, maxrange;
 string name, diffname;
 
@@ -37,14 +39,19 @@ int main() {
 
 	game(difficulty);
 
+	cout << "thank you for playing, " << name << " Goodbye" << endl;
 	return 0;
+}
+
+void clearInputbuffer() {
+	cin.clear();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 void IntInputValidation(int& x, int upval, int lowval) {
 	while (!(cin >> x) || x < lowval || x > upval) {
 		cout << "Invalid input. Please enter an integer between " << lowval << " and " << upval << " : ";
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		clearInputbuffer();
 	}
 }
 
@@ -92,19 +99,19 @@ void giveFeedbackandHint(int difference, bool& UsedHint) {
 	else {
 		cout << "Way off." << endl;
 	}
+
 	if (difference > 0) {
 		char ch;
 		cout << "Would you like a hint? (y/n)" << endl;
 		cin >> ch;
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		clearInputbuffer();
 
 		while (ch != 'y' && ch != 'n') {
 			cout << "please enter valid input: ";
 			cin >> ch;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			clearInputbuffer();
 		}
+
 		if (ch == 'y') {
 			cout << hint() << endl;
 			cout << "Hint used! 5 points and 1 attempt deducted." << endl;
@@ -151,17 +158,18 @@ void dynamicdiff(int maxrange, int attempts) {
 				attempts--;
 			}
 		}
+
 		else {
 			cout << "Hints are not available on the last attempt!" << endl;
 		}
+
 		attempts--;
 	}
-
 	if (attempts == 0) {
+		score = 0;
 		cout << "Bad Luck! You lost! The Secret Number was: " << secret << " your score is: " << score << endl;
 	}
 }
-
 void game(int difficulty) {
 	ofstream out;
 	out.open("score.txt", ios::app);
@@ -183,24 +191,26 @@ void game(int difficulty) {
 		out << "Player: " << name << endl;
 		out << "Difficulty: " << diffname << endl;
 		out << "Final Score: " << score << endl;
+
 		if (score > 0){
 				out << "Result: Win" << endl;
 		}
-			else {
+		else {
 				out << "Result: Lose" << endl;
 		}
+
 		out << "---------------------------------" << endl;
+
 		char cont;
 		cout << "do you want to continue? (y/n)" << endl;
 		cin >> cont;
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+		clearInputbuffer();
 
 		while ((cont != 'y' && cont != 'n')) {
 			cout << "please enter 'y' or 'n': ";
 			cin >> cont;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			clearInputbuffer();
 		}
 
 		if (cont == 'n') {
