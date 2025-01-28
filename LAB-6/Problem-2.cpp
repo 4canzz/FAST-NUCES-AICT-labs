@@ -1,30 +1,19 @@
 #include <iostream>
+
 using namespace std;
 
-int main(){
-	int n, sum = 0, i = 1;
-	double long fact = 1;
-	cout << "enter a number: ";
-	cin >> n;
+int a = 2, b = 3, c = 4;
 
-	cout << "integer" << "\t" << "sum" <<"\t"<< "factorial"<< endl;
-	
-	while (i <= n){
-		sum += i;
-		fact *= i;
-		cout << i << "\t" << sum << "\t" << fact << endl;
-		i++;
-	}
-
-	return 0;
+int main() {
+    cout << "A" << "\t" << "B" << "\t" << "C" <<endl;
+    cout << a << "\t" << b << "\t" << c <<endl;
+    cout << a * a << "\t" << b * b <<"\t" << c * c <<endl;
+    cout << a + 3 << "\t" << b + 2 << "\t" << c + 2 <<endl;
+    return 0;
 }
 
-/*Write a C ++ program that calculates the sum and factorial of the integers for each integer from 1 to n. Where n is a positive integer that you enter.
-integer	sum	factorial
-1	    1	1
-2	    3	2
-3	    6	6
-4	    10	24
-5	    15	120
-
-use while loop*/
+/*Declare three variables (A,B,C) of type int in C++. Take input from console in each
+variable. Now write code such that following is displayed on screen:
+A B C
+[A]*2 [B]*2 [C]*2
+[A]+3 [B]+2 [C]+2*/
