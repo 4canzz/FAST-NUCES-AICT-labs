@@ -1,16 +1,36 @@
-Player: 4can
-Difficulty: easy
-Final Score: 50
----------------------------------
-Player: 4can
-Difficulty: easy
-Final Score: 20
----------------------------------
-Player: 4can
-Difficulty: easy
-Final Score: 60
----------------------------------
-Player: 4can
+
+Player: 4canzz
 Difficulty: medium
-Final Score: 40
+Final Score: 50
+Result: Win
+---------------------------------
+Player: 2
+Difficulty: medium
+Final Score: 0
+Result: Lose
+---------------------------------
+Player: 4canzz
+Difficulty: medium
+Final Score: 90
+Result: Win
+---------------------------------
+Player: 2canzz
+Difficulty: medium
+Final Score: 0
+Result: Lose
+---------------------------------
+Player: saadfast
+Difficulty: easy
+Final Score: 90
+Result: Win
+---------------------------------
+Player: saadfast
+Difficulty: medium
+Final Score: 50
+Result: Win
+---------------------------------
+Player: harrisfast
+Difficulty: hard
+Final Score: 30
+Result: Win
 ---------------------------------
